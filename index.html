@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teatro CIAEI — Início</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='topo_teatro.jpg') }}" alt="Imagem do topo do teatro" />
+    <div class="nav-area">
+      <h1>Teatro CIAEI</h1>
+      <nav>
+        <a href="{{ url_for('inicio') }}" >Início</a>
+        <a href="{{ url_for('eventos') }}">Próximos Eventos</a>
+        <a href="{{ url_for('informacoes') }}">Informações</a>
+        <a href="{{ url_for('bilheteria') }}">Bilheteria</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Bem-vindo ao Teatro CIAEI</h2>
+      <p>Explore nossos próximos eventos, descubra informações sobre o teatro e compre ingressos facilmente através da bilheteria online.</p>
+      <p>Use o menu acima para navegar entre as seções.</p>
+      <img src="{{ url_for('static', filename='wip.jpg') }}" alt="em desenvolvimento" style="width:100%; height:auto; border-radius:8px;"> 
+    </div>
+
+    <footer class="card" style="margin-top:18px">
+      <p>Sistema de demonstração — personalize conforme precisar.</p>
+    </footer>
+  </main>
+</body>
+</html>

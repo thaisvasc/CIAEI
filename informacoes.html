@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teatro CIAEI — Informações e Contato</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='topo_teatro.jpg') }}" alt="Imagem do topo do teatro" />
+    <div class="nav-area">
+      <h1>Teatro CIAEI — Informações e Contato</h1>
+      <nav>
+        <a href="{{ url_for('inicio') }}" >Início</a>
+        <a href="{{ url_for('eventos') }}" >Próximos Eventos</a>
+        <a href="{{ url_for('bilheteria') }}" >Bilheteria</a>
+        <a href="{{ url_for('informacoes') }}">Informações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="informacoes" class="card">
+      <h2>Sobre o Teatro</h2>
+      <img src="{{ url_for('static', filename='wip.jpg') }}" alt="em desenvolvimento" style="width:100%; height:auto; border-radius:8px;">
+    </section>
+
+    <section id="contato" class="card" style="margin-top:20px">
+      <h2>Endereço & Contato</h2>
+      <p>Av. Eng. Fábio Roberto Barnabé, 3665 - Jardim Regina, Indaiatuba - SP, 13330-315</p>
+      <p><strong>Telefone:</strong> (19) 3801-9191</p>
+      <p><strong>E-mail:</strong> educacao.secretario@indaiatuba.sp.gov.br</p>
+    </section>
+  </main>
+
+  <footer class="card" style="margin-top:18px">
+    <p>Teatro CIAEI — Indaiatuba, SP</p>
+  </footer>
+</body>
+</html>

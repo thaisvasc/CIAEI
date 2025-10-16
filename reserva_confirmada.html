@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reserva Confirmada! — Teatro CIAEI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='topo_teatro.jpg') }}" alt="Imagem do topo do teatro" />
+    <div class="nav-area">
+      <h1>Reserva Realizada com Sucesso!</h1>
+      <nav>
+        <a href="{{ url_for('inicio') }}" >Início</a>
+        <a href="{{ url_for('eventos') }}">Próximos Eventos</a>
+        <a href="{{ url_for('informacoes') }}">Informações</a>
+        <a href="{{ url_for('bilheteria') }}">Bilheteria</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card" style="text-align: center;">
+      <h2>Obrigado, {{ nome }}!</h2>
+      <p>Sua reserva para <strong>{{ quantidade }} ingresso(s)</strong> para o evento <strong>"{{ titulo_evento }}"</strong> foi recebida.</p>
+      <p>Os detalhes da confirmação (simulados) foram enviados para o e-mail: <strong>{{ email }}</strong>.</p>
+      <p style="margin-top: 20px;">
+        <a href="{{ url_for('eventos') }}" style="color:var(--accent);font-weight:bold;">Ver outros eventos</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="card" style="margin-top:18px">
+    <p>Teatro CIAEI — Indaiatuba, SP</p>
+  </footer>
+</body>
+</html>
