@@ -110,6 +110,42 @@ def processar_reserva():
                            titulo_evento=evento_reservado.titulo)
 
 
+# --- ROTA TEMPORÁRIA PARA CRIAR O BANCO DE DADOS ---
+# Visite esta rota no navegador UMA VEZ para criar tudo.
+@app.route('/criar_banco_de_dados_agora')
+def criar_banco_de_dados_agora():
+    """
+    Esta é uma rota secreta para inicializar o banco de dados.
+    Visite /criar_banco_de_dados_agora no seu navegador UMA VEZ.
+    """
+    try:
+        # Entra no contexto do app para poder mexer no db
+        with app.app_context():
+            # 1. Cria todas as tabelas (Evento e Reserva)
+            db.create_all()
+
+            # 2. Verifica se a tabela de eventos está vazia
+            if Evento.query.count() == 0:
+                # 3. Cria os eventos iniciais
+                evento1 = Evento(titulo="Concerto Sinfônico — Noite das Estrelas", horarios="19:00 • 21:30")
+                evento2 = Evento(titulo="Peça: A Janela", horarios="Horário: 18:00")
+                evento3 = Evento(titulo="Stand-up Comédia: Rir é Arte", horarios="Horários: 20:00 • 22:00")
+
+                # 4. Adiciona os eventos na "área de preparação"
+                db.session.add(evento1)
+                db.session.add(evento2)
+                db.session.add(evento3)
+
+                # 5. Salva tudo no banco de dados
+                db.session.commit()
+                return "<h1>Sucesso!</h1><p>O banco de dados e as tabelas foram criados e os eventos iniciais foram adicionados.</p><a href='/'>Voltar para o site</a>"
+            else:
+                return "<h1>Aviso</h1><p>O banco de dados já existe e contém dados. Nenhuma ação foi tomada.</p><a href='/'>Voltar para o site</a>"
+    except Exception as e:
+        return f"<h1>Erro ao criar banco de dados:</h1><p>{e}</p>"
+
+
+# (Abaixo desta linha, deve estar seu código 'if __name__ == ...')
 # --- 4. INICIALIZAÇÃO DO SERVIDOR ---
 if __name__ == '__main__':
     # Roda a aplicação em modo de debug, que reinicia automaticamente após mudanças.
